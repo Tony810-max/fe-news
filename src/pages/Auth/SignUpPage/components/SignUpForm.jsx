@@ -43,12 +43,12 @@ const SignUpForm = () => {
 
     const onSubmit = async data => {
         try {
-            const response = await axios.post('http://localhost:3001/api/user/create', data);
+            const response = await axios.post('http://localhost:3001/api/user/sign-up', data);
             if (response) {
                 toast.success(response?.data?.message);
                 reset();
                 setTimeout(() => {
-                    navigate('/');
+                    navigate(ROUTES.LOGIN);
                 }, 4000);
             }
         } catch (error) {
